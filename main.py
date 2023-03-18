@@ -5,7 +5,6 @@ import random
 
 # Create magic spells ==============================================================
 
-
 #black magic
 fire = Spell('Fire', 10, 60, "black")
 thunder = Spell('Thunder', 20, 120, "black")
@@ -15,7 +14,7 @@ quake = Spell('Quake', 14, 140, "black")
 
 #white magic 
 cure = Spell('Cure', 10, 120, "white")
-# cura = Spell('Cura', 18, 200, "white")
+cura = Spell('Cura', 18, 200, "white")
 curaga = Spell('Curaga', 30, 500, "white")
 
 
@@ -45,8 +44,7 @@ player2Items = [{"item": potion, "quantity": 5},
 player1 = Person("Nishant",1160, 140, 100, 60, player1Magic, player1Items)
 player2 = Person("  Purvi",1280, 120, 80, 60, player2Magic, player2Items)
 
-players = [player1]    
-
+players = [player1, player2]    
 
 enemyChoiceOptions = 2  #Attack, Magic
 enemyMagic = [fire, thunder, cure, curaga]
@@ -54,13 +52,12 @@ enemyMagic = [fire, thunder, cure, curaga]
 enemy1 = Person("  Ravan", 1200, 200, 150, 43, enemyMagic, [])
 enemy2 = Person("   Kans", 1000, 180, 120, 43, enemyMagic, [])
 
-enemies = [enemy1]
+enemies = [enemy1, enemy2]
 
 running = True
 
 #Driver code for the game ================================================
 while running:
-    
     print(bcolors.BOLD + "Player              Hit points                              Magic points")
     print("-----------------------------------------------------------------------------" + bcolors.ENDC)
     for player in players:
@@ -84,7 +81,6 @@ while running:
                 if len(enemies) == 0:
                     continue 
             
-
             print(bcolors.OKGREEN + "     " + player.name + " attacked " + enemies[enemy].name.replace(" ", "") + " for", str(damage), "points",bcolors.ENDC)
 
         elif index == 1:
@@ -95,7 +91,6 @@ while running:
 
             spell = player.magic[magicChoice]
             spellDamage = spell.generateSpellDamage()
-
 
             currentMagicPoints = player.getMagicPoints()
             if spell.cost > currentMagicPoints:
@@ -148,7 +143,6 @@ while running:
                     player.magicPoints = player.maxMagicPoints
                     print(bcolors.OKGREEN + bcolors.BOLD + "Fully restores hit and magic points for " + player.name + bcolors.ENDC)
                     player.getStats()
-
                 continue
 
             elif item.type == "attack":
@@ -167,7 +161,6 @@ while running:
 
 # When you win  ======================================================================================================================
     defeatedEnemyCount = 0
-
     for enemy in enemies:
         if enemy.getHitPoints() == 0:
             defeatedEnemyCount += 1
@@ -175,8 +168,6 @@ while running:
     if defeatedEnemyCount == len(enemies):
         print(bcolors.OKGREEN + bcolors.BOLD + "You won ! Game over. " + bcolors.ENDC)
         running = False
-
-
 
 # Enemy action =============================================================================================================================
     for enemy in enemies:
@@ -207,7 +198,6 @@ while running:
 
 # When you lose  ======================================================================================================================
     defeatedPlayerCount = 0
-
     for player in players:
         if player.getHitPoints() == 0:
             defeatedPlayerCount += 1
