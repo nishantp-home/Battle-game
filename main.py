@@ -5,6 +5,7 @@ import random
 
 # Create magic spells ==============================================================
 
+
 #black magic
 fire = Spell('Fire', 10, 60, "black")
 thunder = Spell('Thunder', 20, 120, "black")
