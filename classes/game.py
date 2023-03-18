@@ -1,6 +1,5 @@
 import random
 
-
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -10,7 +9,6 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'   
-
 
 class Person:
 
@@ -90,6 +88,7 @@ class Person:
             print(bcolors.OKGREEN + "          " + str(i)+ ". " + item["item"].name, ":", item["item"].description,  "(x "+ str(item["quantity"]) + ")" + bcolors.ENDC)
             i += 1
 
+
     def getStats(self):
 
         hitPointsBar = ""
@@ -132,6 +131,7 @@ class Person:
               hitPointsString + " |" +  hitPointsBar  + "|"+ bcolors.ENDC +  
               bcolors.OKBLUE +"       " + magicPointString + " |" + magicPointsBar + "|" + bcolors.ENDC + "\n")
 
+
     def chooseTarget(self, enemies):
         
         if len(enemies) > 1:
@@ -146,7 +146,6 @@ class Person:
             enemyChoice = 0
         
         return enemyChoice
-
 
 
     def getEnemyStats(self):
@@ -189,6 +188,7 @@ class Person:
         print(bcolors.FAIL + self.name + ": " + 
               hitPointsString + " |" +  hitPointsBar  + "|"+ bcolors.ENDC +  
               bcolors.HEADER +"       " + magicPointString + " |" + magicPointsBar + "|" + bcolors.ENDC + "\n")
+
 
     def chooseEnemySpell(self):
         magicChoice = random.randrange(0, len(self.magic))

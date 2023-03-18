@@ -1,6 +1,6 @@
 from classes.game import bcolors, Person
 from classes.magic import Spell
-from classes.inventory import Item
+from classes.items import Item
 import random
 
 # Create magic spells ==============================================================
