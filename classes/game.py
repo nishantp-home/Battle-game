@@ -11,7 +11,7 @@ class bcolors:
     UNDERLINE = '\033[4m'   
 
 class Person:
-
+    """Class defining each player and enemy with different attributes and methods"""
     attackDeviation = 10  #private constant
 
     def __init__(self, name, hitPoints, magicPoints, attack, defence, magic, items):

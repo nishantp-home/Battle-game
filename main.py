@@ -4,19 +4,17 @@ from classes.items import Item
 import random
 
 # Create magic spells ==============================================================
-
 #black magic
 fire = Spell('Fire', 10, 60, "black")
 thunder = Spell('Thunder', 20, 120, "black")
 blizzard = Spell('Blizzard', 30, 120, "black")
-meteor = Spell('Meteor', 20, 120, "black")
+meteor = Spell('Meteor', 25, 120, "black")
 quake = Spell('Quake', 14, 140, "black")
 
 #white magic 
-cure = Spell('Cure', 10, 120, "white")
-cura = Spell('Cura', 18, 200, "white")
-curaga = Spell('Curaga', 30, 500, "white")
-
+cure = Spell('Cure', 10, 120)
+cura = Spell('Cura', 18, 200)
+curaga = Spell('Curaga', 35, 500)
 
 #Create items =====================================================================================
 potion = Item("Potion", "potion", "Heals for 50 points", 50)
@@ -81,7 +79,7 @@ while running:
                 if len(enemies) == 0:
                     continue 
             
-            print(bcolors.OKGREEN + "     " + player.name + " attacked " + enemies[enemy].name.replace(" ", "") + " for", str(damage), "points",bcolors.ENDC)
+            print(bcolors.OKGREEN + "     " + player.name.replace(" ", "") + " attacked " + enemies[enemy].name.replace(" ", "") + " for", str(damage), "points",bcolors.ENDC)
 
         elif index == 1:
             magicChoice = player.chooseSpell()
@@ -178,7 +176,7 @@ while running:
             target = random.randrange(0, len(players))
             players[target].takeDamage(enemyDamage)
 
-            print("\n" + bcolors.FAIL + enemies[enemyChoice].name + " attacked " + players[target].name.replace(" ", "") + 
+            print("\n" + bcolors.FAIL + enemy.name + " attacked " + players[target].name.replace(" ", "") + 
                   " for", str(enemyDamage) + " points" +bcolors.ENDC +"\n")
         elif enemyChoice == 1:
             spell, magicDamage = enemy.chooseEnemySpell()
@@ -190,7 +188,7 @@ while running:
             elif spell.type == "black":
                 target = random.randrange(0, len(players))
                 players[target].takeDamage(magicDamage)
-                print("  " + bcolors.FAIL + enemy.name + " attacked " + players[target].name.replace(" ", "") + " with " + bcolors.BOLD + spell.name + " for " + str(magicDamage) + " points" + bcolors.ENDC)
+                print(bcolors.FAIL + enemy.name.replace(" ","") + " attacked " + players[target].name.replace(" ", "") + " with " + bcolors.BOLD + spell.name.replace(" ", "") + " for " + str(magicDamage) + " points" + bcolors.ENDC)
 
                 if players[target].getHitPoints() == 0:
                     print(bcolors.FAIL + bcolors.BOLD + players[target].name.replace(" ", ""), " dead !" + bcolors.ENDC)
